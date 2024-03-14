@@ -118,7 +118,6 @@ body {
 /* Header styles */
 header {
   border-radius: 1rem;
-  padding-inline: 1rem;
   top: 1rem !important;
   transition: background-color .5s;
 }
@@ -127,6 +126,7 @@ header {
 .dropfilter {
   backdrop-filter: blur(10px);
   background-color: #00000041;
+  padding-inline: 1rem;
 }
 
 .dropfilter .link-opacity-50 {
