@@ -1,0 +1,174 @@
+/* Variables */
+:root {
+  --bg-color: #283446;
+  --bg-x-size: 45vw;
+  --fs-xs: clamp(0.7rem, 0.05vw + 0.49rem, 0.73rem);
+  --fs-sm: clamp(1rem, 0.05vw + 0.99rem, 1.03rem);
+  --fs-base: clamp(1.25rem, 0.18vw + 1.21rem, 1.38rem);
+  --fs-md: clamp(1.56rem, 0.39vw + 1.49rem, 1.83rem);
+  --fs-lg: clamp(1.95rem, 0.7vw + 1.81rem, 2.44rem);
+  --fs-xl: clamp(2.14rem, 1.16vw + 2.21rem, 3.26rem);
+  --fs-xxl: clamp(3.05rem, 1.84vw + 2.68rem, 4.34rem);
+  --fs-xxxl: clamp(3.81rem, 2.82vw + 3.25rem, 5.79rem);
+}
+
+/* General styles */
+html {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-color: var(--bg-color);
+}
+
+body {
+  background-color: transparent;
+  background-image: url('../img/asset-background.webp');
+  background-size: 80dvh;
+  background-repeat: no-repeat;
+  background-position-x: right;
+}
+
+/* Button styles */
+.btn-base {
+  background-color: transparent;
+  outline: transparent;
+  border: unset;
+  transition: transform .5s;
+}
+
+.btn-base:active {
+  transform: scale(.9);
+}
+
+/* Link styles */
+.no-underline {
+  text-decoration: none;
+}
+
+/* Background styles */
+.bg-cl {
+  background-color: #283446;
+}
+
+/* Layout styles */
+.screenlimiter {
+  width: 90%;
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+/* Font size styles */
+.fs-xs { font-size: var(--fs-xs); }
+.fs-sm { font-size: var(--fs-sm); }
+.fs-base { font-size: var(--fs-base); }
+.fs-md { font-size: var(--fs-md); }
+.fs-lg { font-size: var(--fs-lg); }
+.fs-xl { font-size: var(--fs-xl); }
+.fs-xxl { font-size: var(--fs-xxl); }
+.fs-xxxl { font-size: var(--fs-xxxl); }
+
+/* Color styles */
+.bg-main {
+  background-color: #3871ff;
+}
+
+/* Padding styles */
+.py-0\.5 { padding-block: .1rem; }
+.p-3\.5 { padding: 1.25rem; }
+.p-4\.5 { padding: 2rem; }
+.px-4\.5 { padding-inline: 2rem; }
+.p-6 { padding: 4.25rem; }
+.py-10 { padding-block: 5.5rem; }
+
+/* Width and height styles */
+.w-fit { width: fit-content; }
+.h-fit { height: fit-content; }
+
+/* Effects */
+.glow { filter: drop-shadow(0 2px 2px rgb(255 255 255 / 0.25)); }
+
+/* Margin styles */
+.mt-10 { margin-top: 8rem; }
+.-mt-10 { margin-top: -8rem; }
+.-mb-16 { margin-bottom: -14rem; }
+.-mt-5 { margin-top: -4rem; }
+.-mb-5 { margin-bottom: -4rem; }
+
+/* Height styles */
+.h-dvh { height: 100dvh; }
+.h-d75 { height: 75dvh; }
+.h-d70 { height: 70dvh; }
+.h-d50 { height: 50dvh; }
+
+/* SVG styles */
+.wide-svgs svg {
+  aspect-ratio: 16/9;
+  object-fit: contain;
+}
+
+/* Device styles */
+.device {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  object-fit: contain;
+  width: 35%;
+  z-index: 0;
+}
+
+/* Header styles */
+header {
+  border-radius: 1rem;
+  top: 1rem !important;
+  transition: background-color .5s, padding .5s;
+}
+
+/* Filter styles */
+.dropfilter {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: #00000041;
+  padding-inline: 1rem;
+}
+
+.dropfilter .link-opacity-50 {
+  --bs-link-opacity: 1 !important;
+}
+
+/* Media queries */
+@media (max-width: 767px) {
+  :root {
+    --bg-color: #283446;
+    --bg-x-size: 45vw;
+    --fs-xs: clamp(0.75rem, 0.0375vw + 0.37125rem, 0.54675rem);
+    --fs-sm: clamp(0.875rem, 0.0375vw + 0.7425rem, 0.77325rem);
+    --fs-base: clamp(1.09375rem, 0.135vw + 0.91425rem, 1.0395rem);
+    --fs-md: clamp(1.365rem, 0.2925vw + 1.08825rem, 1.34225rem);
+    --fs-lg: clamp(1.71125rem, 0.525vw + 1.36725rem, 1.83075rem);
+    --fs-xl: clamp(1.8825rem, 0.9vw + 1.689rem, 2.42325rem);
+    --fs-xxl: clamp(2.6775rem, 1.35vw + 1.677rem, 2.55075rem);
+    --fs-xxxl: clamp(3.35625rem, 1.9125vw + 2.425rem, 4.31925rem);
+  }
+
+  .mobile-nav { width: 100%; }
+  .text-white-50 { color: rgb(215, 215, 215) !important; }
+  #menu {
+    margin-top: 1rem;
+    order: 3;
+    width: 100%;
+  }
+  #menu ul {
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, .3);
+  }
+}
+
+@media (min-width: 768px) {
+  .device { width: 45%; }
+  .collapse {
+    display: flex !important;
+    width: fit-content;
+  }
+}
