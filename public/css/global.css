@@ -26,6 +26,7 @@ body {
   background-size: 80dvh;
   background-repeat: no-repeat;
   background-position-x: right;
+  transition: background .5s;
 }
 
 /* Button styles */
@@ -135,6 +136,36 @@ header {
   --bs-link-opacity: 1 !important;
 }
 
+/* Mobile Menu */
+
+.menu_button{
+  margin-bottom: -5px;
+}
+
+.menu_button span {
+  width: 32px;
+  height: 2px;
+  display: block;  
+  transition: all 0.3s cubic-bezier(0.52, 0.01, 0.16, 1);
+  background-color: #fff;
+}
+
+.menu_button span:nth-child(2){
+  margin: 5px auto;
+}
+
+.menu_button[aria-expanded=true] span:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.menu_button[aria-expanded=true] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu_button[aria-expanded=true] span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
 /* Media queries */
 @media (max-width: 767px) {
   :root {
@@ -142,12 +173,20 @@ header {
     --bg-x-size: 45vw;
     --fs-xs: clamp(0.75rem, 0.0375vw + 0.37125rem, 0.54675rem);
     --fs-sm: clamp(0.875rem, 0.0375vw + 0.7425rem, 0.77325rem);
-    --fs-base: clamp(1.09375rem, 0.135vw + 0.91425rem, 1.0395rem);
+    --fs-base: clamp(1.05375rem, 0.135vw + 0.91425rem, 1.0395rem);
     --fs-md: clamp(1.365rem, 0.2925vw + 1.08825rem, 1.34225rem);
     --fs-lg: clamp(1.71125rem, 0.525vw + 1.36725rem, 1.83075rem);
     --fs-xl: clamp(1.8825rem, 0.9vw + 1.689rem, 2.42325rem);
     --fs-xxl: clamp(2.6775rem, 1.35vw + 1.677rem, 2.55075rem);
     --fs-xxxl: clamp(3.35625rem, 1.9125vw + 2.425rem, 4.31925rem);
+  }
+
+  .nav a{
+    border-radius: .5rem;
+  }
+
+  .nav a:hover{
+    background-color: rgb(255, 255, 255, .1);
   }
 
   .mobile-nav { width: 100%; }
@@ -161,14 +200,24 @@ header {
     flex-direction: column;
     padding: 1rem;
     border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, .3);
+    border: 1px solid rgba(255, 255, 255, .1);
+    background-color: rgb(36, 91, 225, .8);
   }
 }
 
 @media (min-width: 768px) {
+  .nav{
+    font-size: small;
+  }
   .device { width: 45%; }
   .collapse {
     display: flex !important;
     width: fit-content;
+  }
+}
+
+@media (min-width: 1024px){
+  .nav{
+    font-size: var(--fs-sm);
   }
 }
